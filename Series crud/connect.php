@@ -1,7 +1,7 @@
 <?php
-$connect=mysqli_connect('localhost','root','',
-'crudseries');
-if(!$connect){
-    echo "connection succesfull";
+$con = mysqli_connect('localhost', 'root','','crudseries');
+if(!$con){
+   
+    die(mysqli_connect($con));
 }
-?> 
+?>
