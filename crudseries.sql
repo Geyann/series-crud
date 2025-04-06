@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2025 at 09:00 AM
+-- Generation Time: Apr 06, 2025 at 04:58 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `seriescrud` (
   `id` int(25) NOT NULL,
-  `fName` varchar(100) NOT NULL,
+  `fName` varchar(255) NOT NULL,
   `lName` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mobile` varchar(100) NOT NULL
@@ -40,7 +40,11 @@ CREATE TABLE `seriescrud` (
 --
 
 INSERT INTO `seriescrud` (`id`, `fName`, `lName`, `email`, `mobile`) VALUES
-(1, 'gian ', 'lintag', 'Gian@gmail.com', '09192451683');
+(2, 'neil', 'nimak', 'minak@gmail.com', '099999'),
+(3, 'hian', 'hamin', 'mahin@gmail.com', '0888'),
+(4, 'hanm', 'minas', 'minas@gmail.com', '01111'),
+(6, 'hans', 'nams', 'namhasn@gmail.com', '111111'),
+(13, 'joris', 'fabi', 'JorisFabiMaPaGmAhAl08@gmail.com', '892136872549875267646317255789243657');
 
 --
 -- Indexes for dumped tables
@@ -60,7 +64,7 @@ ALTER TABLE `seriescrud`
 -- AUTO_INCREMENT for table `seriescrud`
 --
 ALTER TABLE `seriescrud`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
