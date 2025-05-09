@@ -1,8 +1,8 @@
 <?php
 include 'connect.php';
-$id=$_GET['updateid'];
+$id=$_GET['deleteid'];
 //echo $id;
-$sql="delete FROM seriescrud WHERE id=$id";
+$sql="DELETE FROM `seriescrud` WHERE id=$id";
 $result=mysqli_query($con,$sql); 
 if($result){
     //echo "Deleted successfully";
@@ -10,4 +10,7 @@ if($result){
 }else{
     die(mysqli_error($con));
 }
+    
+
+
 ?>
