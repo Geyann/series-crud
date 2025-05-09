@@ -10,14 +10,17 @@ $Fname= $row['Fname'];
 $Lname= $row['Lname'];
 $Email= $row['Email'];
 $Mobile= $row['Mobile'];
+$datas= $row['multipleData'];
 if(isset($_POST['update'])){
 $Fname= $_POST['Fname'];
 $Lname= $_POST['Lname'];
 $Email= $_POST['Email'];
 $Mobile= $_POST['Mobile'];
+$datas= $_POST['data'];           
+$allData=implode(",",$datas);
 
-$sql="update seriescrud set Fname='$Fname',Lname='$Lname',Email='$Email',
-Mobile='$Mobile' where id=$ID";
+$sql="update `seriescrud` set Fname='$Fname',Lname='$Lname',Email='$Email',
+Mobile='$Mobile',multipleData='$allData' where id=$ID";
 $result=mysqli_query($con,$sql);
 if($result){
     //echo "updated successfully";
@@ -59,7 +62,13 @@ if($result){
     <label>Mobile</label>
     <input type="text" class="form-control" autocomplete="off" name="Mobile" value=<?php echo $Mobile?>>
   </div>
-  <button type="submit" class="btn btn-dark btn-lg" name='update'>Update</button>
+  <div>
+  <input type="checkbox" name="data[]" value="Javascript">Javascript
+  <input type="checkbox" name="data[]" value="React">React
+  <input type="checkbox" name="data[]" value="CSS">CSS
+  <input type="checkbox" name="data[]" value="HTML">HTML
+  </div>
+  <button type="submit" class="btn btn-dark btn-lg my-3" name='update'>Update</button>
         </form>
 
   </body>
