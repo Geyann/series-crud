@@ -23,7 +23,10 @@
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
       <th scope="col">Mobile</th>
+      <th scope="col">Subjects</th>
       <th scope="col">Operations</th>
+
+
     </tr>
   </thead>
   <tbody>
@@ -37,15 +40,18 @@ while($row=mysqli_fetch_assoc($result)){
     $Lname = $row['Lname'];
     $Email = $row['Email'];
     $Mobile = $row['Mobile'];
+    $datas=$row['multipleData'];
+   // $allData=implode(",",$datas);
     echo '<tr>
         <th scope="row">'.$ID.'</th>
         <td>'.$Fname.'</td>
         <td>'.$Lname.'</td>
         <td>'.$Email.'</td>
         <td>'.$Mobile.'</td>
+        <td>'.$datas.'</td>
         <td>
         <a href="update.php?updateid='.$ID.'" class="btn btn-dark">Update</a>
-        <a href="delete.php?updateid='.$ID.'" class="btn btn-danger">Delete</a>
+        <a href="delete.php?deleteid='.$ID.'" class="btn btn-danger">Delete</a>
       </td>
         
       </tr>';
