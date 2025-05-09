@@ -1,59 +1,74 @@
 <?php
-include 'connect.php';
+include 'connect.php'; 
 if(isset($_POST['submit'])){
-    $fName = $_POST['fName'];
-    $lName = $_POST['lName'];
-    $email = $_POST['email'];
-    $mobile = $_POST['mobile'];
+    $Fname=$_POST['Fname'];
+    $Lname=$_POST['Lname'];
+    $Email=$_POST['Email'];
+    $Mobile=$_POST['Mobile'];
+    $datas=$_POST['data'];
+    $allData=implode(",",$datas);
+
     //insert query
-    $sql = "insert into seriescrud (fname,lName,email,mobile) values ('$fName','$lName','$email','$mobile')";
+                        
+    $sql="insert into `seriescrud` (Fname,Lname,Email,Mobile,multipleData) 
+    values ('$Fname','$Lname','$Email','$Mobile','$allData')";
+
     $result=mysqli_query($con,$sql);
     if($result){
-      header('location:read.php');
+        header('location:read.php');
     }else{
-      die(mysqli_connect($con));
+        die(mysqli_error($con));
     }
 }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" >
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>PHP series crud</title>
+    <title>PHP CrudSeries</title>
   </head>
-  <body>
+<body>
     <div class="container my-5">
-      <form method = "post">
-  <div class="mb-3">
-      <label  class="fName">First Name</label>
-      <input type="text" class="form-control"  
-      placeholder="enter your first name" name = 'fName' autocomplete = "off">
-  </div>
-  <div class="mb-3">
-      <label  class="lName">Last Name</label>
-      <input type="text" class="form-control"  
-      placeholder="enter your last name" name = 'lName' autocomplete = "off">
-  </div>
-  <div class="mb-3">
-      <label  class="email">Email</label>
-      <input type="email" class="form-control"  
-      placeholder="enter your email" name = 'email' autocomplete = "off">
-  </div>
-  <div class="mb-3">
-      <label  class="mobile">Mobile</label>
-      <input type="mobile" class="form-control"  
-      placeholder="enter your mobile" name = 'mobile' autocomplete = "off">
-  </div>
-  <button class="btn btn-dark btn-lg"
-  name = 'submit'>Submit</button>
- </form> 
+        <form method="post">
+        <div class="mb-3">
+        <label class="form-label">First name</label>
+        <input type="text" class="form-control"
+        placeholder="Enter your first name" name="Fname"
+        autocomplete="off">
+    </div>
+        <div class="mb-3">
+            <label class="form-label">Last name</label>
+            <input type="text" class="form-control"
+            placeholder="Enter your last name" name="Lname"
+            autocomplete="off">
+    </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control"
+            placeholder="Enter your email" name="Email"
+            autocomplete="off">
+    </div>
+        <div class="mb-3">
+            <label class="form-label">Mobile</label>
+            <input type="text" class="form-control"
+            placeholder="Enter your mobile" name="Mobile"
+            autocomplete="off">
+    </div>
+<div>
+<input type="checkbox" name="data[]" value="Javascript">Javascript
+<input type="checkbox" name="data[]" value="React">React
+<input type="checkbox" name="data[]" value="CSS">CSS
+<input type="checkbox" name="data[]" value="HTML">HTML
 </div>
-  
-  </body>
+
+
+    <button class="btn btn-dark btn-lg my-3" name="submit">Submit</button>
+</form>
+
+</div>
+
+</body>
 </html>
