@@ -23,7 +23,7 @@ $sql="update `seriescrud` set Fname='$Fname',Lname='$Lname',Email='$Email',
 Mobile='$Mobile',multipleData='$allData' where id=$ID";
 $result=mysqli_query($con,$sql);
 if($result){
-    //echo "updated successfully";
+    ///echo "updated successfully";
     header('location:read.php');
 }else{
     die(mysqli_error($con));
